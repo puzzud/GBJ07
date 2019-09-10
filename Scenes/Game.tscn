@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Mock1.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Hero.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Graphics/Fonts/EarlyGameBoyFont8x8.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Resources/Block1.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/Fonts/EarlyGameBoyFont8x8.tres" type="DynamicFont" id=5]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,21 +13,49 @@ script = ExtResource( 1 )
 margin_right = 160.0
 margin_bottom = 144.0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Hero" parent="." instance=ExtResource( 3 )]
+[node name="Room" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Contents" type="Node2D" parent="Room"]
+
+[node name="Level1" type="YSort" parent="Room/Contents"]
+
+[node name="Hero" parent="Room/Contents/Level1" instance=ExtResource( 3 )]
 position = Vector2( 8, 48 )
+
+[node name="Block" type="Sprite" parent="Room/Contents/Level1"]
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Block2" type="Sprite" parent="Room/Contents/Level1"]
+position = Vector2( 0, 8 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="UI" type="Control" parent="."]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="LivesLabel" type="Label" parent="UI"]
 margin_left = 8.0
 margin_top = 128.0
 margin_right = 56.0
 margin_bottom = 138.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "Lives:"
 uppercase = true
@@ -36,7 +65,7 @@ margin_left = 56.0
 margin_top = 128.0
 margin_right = 72.0
 margin_bottom = 138.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "3"
 uppercase = true
@@ -46,7 +75,7 @@ margin_left = 96.0
 margin_top = 128.0
 margin_right = 144.0
 margin_bottom = 138.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "Level:"
 uppercase = true
@@ -56,7 +85,7 @@ margin_left = 144.0
 margin_top = 128.0
 margin_right = 160.0
 margin_bottom = 138.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "1"
 uppercase = true
