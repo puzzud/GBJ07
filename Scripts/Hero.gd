@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 var direction = Vector2(1.0, 0.0)
 var intendedDirection = Vector2(0.0, 0.0)
@@ -38,7 +38,7 @@ func _process(delta):
 	else:
 		if direction.x != 0.0:
 			$AnimationPlayer.play("walk_horizontal")
-			self.flip_h = direction.x < 0.0
+			$Sprite.flip_h = direction.x < 0.0
 		else:
 			if direction.y != 0.0:
 				if direction.y < 0.0:
