@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Game.gd" type="Script" id=1]
-[ext_resource path="res://Resources/Mock1.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Background1.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Hero.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Resources/Block1.png" type="Texture" id=4]
 [ext_resource path="res://Graphics/Fonts/EarlyGameBoyFont8x8.tres" type="DynamicFont" id=5]
@@ -29,14 +29,36 @@ __meta__ = {
 [node name="Hero" parent="Room/Contents/Level1" instance=ExtResource( 3 )]
 position = Vector2( 8, 48 )
 
-[node name="Block" type="Sprite" parent="Room/Contents/Level1"]
+[node name="Block2" type="Sprite" parent="Room/Contents/Level1"]
+position = Vector2( 32, 24 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 
-[node name="Block2" type="Sprite" parent="Room/Contents/Level1"]
-position = Vector2( 0, 8 )
+[node name="Block" type="Sprite" parent="Room/Contents/Level1"]
+position = Vector2( 48, 16 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Block5" type="Sprite" parent="Room/Contents/Level1"]
+position = Vector2( 48, 24 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Block3" type="Sprite" parent="Room/Contents/Level1"]
+position = Vector2( 48, 8 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Block4" type="Sprite" parent="Room/Contents/Level1"]
+position = Vector2( 32, 16 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
