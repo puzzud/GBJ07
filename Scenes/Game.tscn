@@ -19,7 +19,6 @@ __meta__ = {
 }
 
 [node name="Grid" type="TextureRect" parent="."]
-visible = false
 margin_right = 160.0
 margin_bottom = 144.0
 texture = ExtResource( 3 )
@@ -33,8 +32,14 @@ __meta__ = {
 }
 
 [node name="Contents" type="YSort" parent="Room"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Level1" type="YSort" parent="Room/Contents"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Hero" parent="Room/Contents/Level1" instance=ExtResource( 4 )]
 position = Vector2( 8, 48 )
@@ -52,8 +57,12 @@ position = Vector2( 80, 8 )
 position = Vector2( 64, 0 )
 
 [node name="Level2" type="YSort" parent="Room/Contents"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Block5" parent="Room/Contents/Level2" instance=ExtResource( 5 )]
+editor/display_folded = true
 position = Vector2( 80, 8 )
 
 [node name="Sprite" parent="Room/Contents/Level2/Block5" index="0"]
