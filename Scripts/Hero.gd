@@ -1,7 +1,8 @@
-extends Node2D
+extends KinematicBody2D
 
 var direction = Vector2(1.0, 0.0)
 var intendedDirection = Vector2(0.0, 0.0)
+var motion = Vector2(0.0, 0.0)
 
 export var speed = 24.0
 
@@ -20,15 +21,19 @@ func _process(delta):
 	if Input.is_action_pressed("ui_down"):
 		intendedDirection.y += 1.0
 	
-	var velocity = Vector2(0.0, 0.0)
+	motion = Vector2(0.0, 0.0)
 	
 	if intendedDirection.length() > 0.0:
 		direction = intendedDirection
-		
-		velocity = direction * speed * delta
-		position += velocity
+		motion = direction
 	
-	if velocity.length() == 0.0:
+	updateAnimation(delta)
+
+func _physics_process(delta):
+	move_and_slide(motion.normalized() * speed, Vector2(0.0, 0.0))
+
+func updateAnimation(delta):
+	if motion.length() == 0.0:
 		if direction.x != 0.0:
 			$AnimationPlayer.play("idle_horizontal")
 		elif direction.y < 0.0:
