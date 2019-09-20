@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Game",
+"language": "GDScript",
+"path": "res://Scenes/Game.gd"
+} ]
 _global_script_class_icons={
-
+"Game": ""
 }
 
 [application]
@@ -18,6 +23,10 @@ _global_script_class_icons={
 config/name="GBJ7"
 run/main_scene="res://Scenes/Game.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Scenes/Global.tscn"
 
 [display]
 

@@ -10,7 +10,7 @@ extents = Vector2( 8, 4 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 centered = false
-region_enabled = true
+hframes = 2
 region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
