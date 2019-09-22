@@ -1,4 +1,5 @@
-extends KinematicBody2D
+extends Entity
+class_name Hero
 
 var direction = Vector2(1.0, 0.0)
 var intendedDirection = Vector2(0.0, 0.0)

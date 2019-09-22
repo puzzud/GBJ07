@@ -1,4 +1,4 @@
-extends Node2D
+extends Entity
 class_name Block
 
 func _ready():

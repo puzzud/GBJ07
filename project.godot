@@ -9,15 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
+"base": "Entity",
 "class": "Block",
 "language": "GDScript",
 "path": "res://Scripts/Block.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Entity",
+"language": "GDScript",
+"path": "res://Scripts/Entity.gd"
 }, {
 "base": "Node2D",
 "class": "Game",
 "language": "GDScript",
 "path": "res://Scripts/Game.gd"
+}, {
+"base": "Entity",
+"class": "Hero",
+"language": "GDScript",
+"path": "res://Scripts/Hero.gd"
 }, {
 "base": "Node2D",
 "class": "Stage",
@@ -26,7 +36,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Block": "",
+"Entity": "",
 "Game": "",
+"Hero": "",
 "Stage": ""
 }
 
