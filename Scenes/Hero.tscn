@@ -116,3 +116,6 @@ anims/walk_vertical_up = SubResource( 6 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 8, 14 )
 polygon = PoolVector2Array( 5, -1, 0, 2, -5, -1, 0, -4 )
+__meta__ = {
+"_edit_lock_": true
+}

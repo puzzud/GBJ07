@@ -65,7 +65,6 @@ position = Vector2( 80, 8 )
 position = Vector2( 64, 0 )
 
 [node name="Level2" type="YSort" parent="Stage/Contents"]
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }

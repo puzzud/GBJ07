@@ -92,6 +92,12 @@ ui_down={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Level0"
+2d_physics/layer_2="Level1"
+2d_physics/layer_3="Level2"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

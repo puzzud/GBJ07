@@ -1,12 +1,6 @@
 extends Entity
 class_name Hero
 
-var direction = Vector2(1.0, 0.0)
-var intendedDirection = Vector2(0.0, 0.0)
-var motion = Vector2(0.0, 0.0)
-
-export var speed = 24.0
-
 func _ready():
 	$AnimationPlayer.play("idle_horizontal")
 
@@ -29,9 +23,6 @@ func _process(delta):
 		motion = direction
 	
 	updateAnimation(delta)
-
-func _physics_process(delta):
-	move_and_slide(motion.normalized() * speed, Vector2(0.0, 0.0))
 
 func updateAnimation(delta):
 	if motion.length() == 0.0:
