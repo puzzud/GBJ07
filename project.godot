@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "Block",
+"language": "GDScript",
+"path": "res://Scripts/Block.gd"
+}, {
+"base": "Node2D",
 "class": "Game",
 "language": "GDScript",
-"path": "res://Scenes/Game.gd"
+"path": "res://Scripts/Game.gd"
 } ]
 _global_script_class_icons={
+"Block": "",
 "Game": ""
 }
 

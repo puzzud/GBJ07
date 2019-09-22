@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scenes/Game.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Background1.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/Grid.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/GoalCell.tscn" type="PackedScene" id=4]
@@ -20,7 +20,6 @@ __meta__ = {
 }
 
 [node name="Grid" type="TextureRect" parent="."]
-visible = false
 margin_right = 160.0
 margin_bottom = 144.0
 texture = ExtResource( 3 )
@@ -28,51 +27,50 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Room" type="Node2D" parent="."]
+[node name="Stage" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Floor" type="Node2D" parent="Room"]
+[node name="Floor" type="Node2D" parent="Stage"]
 
-[node name="GoalCell" parent="Room/Floor" instance=ExtResource( 4 )]
+[node name="GoalCell" parent="Stage/Floor" instance=ExtResource( 4 )]
 position = Vector2( 128, 8 )
 
-[node name="Contents" type="YSort" parent="Room"]
+[node name="Contents" type="YSort" parent="Stage"]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Level1" type="YSort" parent="Room/Contents"]
+[node name="Level1" type="YSort" parent="Stage/Contents"]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Hero" parent="Room/Contents/Level1" instance=ExtResource( 5 )]
+[node name="Hero" parent="Stage/Contents/Level1" instance=ExtResource( 5 )]
 position = Vector2( 16, 16 )
 
-[node name="Block" parent="Room/Contents/Level1" instance=ExtResource( 6 )]
+[node name="Block1" parent="Stage/Contents/Level1" instance=ExtResource( 6 )]
 position = Vector2( 48, 8 )
 
-[node name="Block2" parent="Room/Contents/Level1" instance=ExtResource( 6 )]
+[node name="Block2" parent="Stage/Contents/Level1" instance=ExtResource( 6 )]
 position = Vector2( 64, 8 )
 
-[node name="Block3" parent="Room/Contents/Level1" instance=ExtResource( 6 )]
+[node name="Block3" parent="Stage/Contents/Level1" instance=ExtResource( 6 )]
 position = Vector2( 80, 8 )
 
-[node name="Block4" parent="Room/Contents/Level1" instance=ExtResource( 6 )]
+[node name="Block4" parent="Stage/Contents/Level1" instance=ExtResource( 6 )]
 position = Vector2( 64, 0 )
 
-[node name="Level2" type="YSort" parent="Room/Contents"]
+[node name="Level2" type="YSort" parent="Stage/Contents"]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Block5" parent="Room/Contents/Level2" instance=ExtResource( 6 )]
-editor/display_folded = true
+[node name="Block5" parent="Stage/Contents/Level2" instance=ExtResource( 6 )]
 position = Vector2( 80, 8 )
 
-[node name="Sprite" parent="Room/Contents/Level2/Block5" index="0"]
+[node name="Sprite" parent="Stage/Contents/Level2/Block5" index="0"]
 position = Vector2( 0, -4 )
 
 [node name="UI" type="Control" parent="."]
@@ -130,4 +128,4 @@ wait_time = 2.0
 one_shot = true
 [connection signal="timeout" from="Timers/EndLevelTimer" to="." method="onEndLevelTimerTimeout"]
 
-[editable path="Room/Contents/Level2/Block5"]
+[editable path="Stage/Contents/Level2/Block5"]
