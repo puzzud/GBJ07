@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Background1.png" type="Texture" id=2]
 [ext_resource path="res://Graphics/Grid.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/GoalCell.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Hero.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Block.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Graphics/Fonts/EarlyGameBoyFont8x8.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Scripts/Stage.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/GoalCell.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Hero.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Block.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Graphics/Fonts/EarlyGameBoyFont8x8.tres" type="DynamicFont" id=8]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -28,13 +29,14 @@ __meta__ = {
 }
 
 [node name="Stage" type="Node2D" parent="."]
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Floor" type="Node2D" parent="Stage"]
 
-[node name="GoalCell" parent="Stage/Floor" instance=ExtResource( 4 )]
+[node name="GoalCell" parent="Stage/Floor" instance=ExtResource( 5 )]
 position = Vector2( 128, 8 )
 
 [node name="Contents" type="YSort" parent="Stage"]
@@ -47,19 +49,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Hero" parent="Stage/Contents/Level1" instance=ExtResource( 5 )]
-position = Vector2( 16, 16 )
+[node name="Hero" parent="Stage/Contents/Level1" instance=ExtResource( 6 )]
+position = Vector2( 15, 15 )
 
-[node name="Block1" parent="Stage/Contents/Level1" instance=ExtResource( 6 )]
+[node name="Block1" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
 position = Vector2( 48, 8 )
 
-[node name="Block2" parent="Stage/Contents/Level1" instance=ExtResource( 6 )]
+[node name="Block2" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
 position = Vector2( 64, 8 )
 
-[node name="Block3" parent="Stage/Contents/Level1" instance=ExtResource( 6 )]
+[node name="Block3" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
 position = Vector2( 80, 8 )
 
-[node name="Block4" parent="Stage/Contents/Level1" instance=ExtResource( 6 )]
+[node name="Block4" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
 position = Vector2( 64, 0 )
 
 [node name="Level2" type="YSort" parent="Stage/Contents"]
@@ -67,7 +69,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Block5" parent="Stage/Contents/Level2" instance=ExtResource( 6 )]
+[node name="Block5" parent="Stage/Contents/Level2" instance=ExtResource( 7 )]
 position = Vector2( 80, 8 )
 
 [node name="Sprite" parent="Stage/Contents/Level2/Block5" index="0"]
@@ -86,7 +88,7 @@ margin_left = 8.0
 margin_top = 128.0
 margin_right = 56.0
 margin_bottom = 138.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "Lives:"
 uppercase = true
@@ -96,7 +98,7 @@ margin_left = 56.0
 margin_top = 128.0
 margin_right = 72.0
 margin_bottom = 138.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "3"
 uppercase = true
@@ -106,7 +108,7 @@ margin_left = 96.0
 margin_top = 128.0
 margin_right = 144.0
 margin_bottom = 138.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "Level:"
 uppercase = true
@@ -116,7 +118,7 @@ margin_left = 144.0
 margin_top = 128.0
 margin_right = 160.0
 margin_bottom = 138.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "1"
 uppercase = true
