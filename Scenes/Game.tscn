@@ -53,16 +53,16 @@ __meta__ = {
 position = Vector2( 15, 15 )
 
 [node name="Block1" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
-position = Vector2( 48, 8 )
+position = Vector2( 48, 32 )
 
 [node name="Block2" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
 position = Vector2( 64, 8 )
 
 [node name="Block3" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
-position = Vector2( 80, 8 )
+position = Vector2( 80, 24 )
 
 [node name="Block4" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
-position = Vector2( 64, 0 )
+position = Vector2( 32, 0 )
 
 [node name="Level2" type="YSort" parent="Stage/Contents"]
 __meta__ = {
@@ -70,7 +70,7 @@ __meta__ = {
 }
 
 [node name="Block5" parent="Stage/Contents/Level2" instance=ExtResource( 7 )]
-position = Vector2( 80, 8 )
+position = Vector2( 112, 8 )
 
 [node name="Sprite" parent="Stage/Contents/Level2/Block5" index="0"]
 position = Vector2( 0, -4 )

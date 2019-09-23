@@ -119,3 +119,8 @@ polygon = PoolVector2Array( 5, -1, 0, 2, -5, -1, 0, -4 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="PushTimer" type="Timer" parent="Timers"]
+one_shot = true

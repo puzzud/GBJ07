@@ -11,7 +11,13 @@ func _ready():
 	updateCollision()
 
 func _physics_process(delta):
-	move_and_slide(motion.normalized() * speed, Vector2(0.0, 0.0))
+	if motion.length() == 0.0:
+		return
+	
+	#move_and_slide(motion.normalized() * speed, Vector2(0.0, 0.0))
+	var collides = move_and_collide(motion.normalized() * speed * delta)
+	if collides != null:
+		print(collides.collider.name)
 
 func updateCollision():
 	var y = $Sprite.transform.origin.y
