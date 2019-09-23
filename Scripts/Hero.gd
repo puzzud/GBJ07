@@ -1,6 +1,9 @@
 extends Entity
 class_name Hero
 
+var pushee: Entity = null
+var pushDirection: Vector2 = Vector2(0, 0)
+
 func _ready():
 	$AnimationPlayer.play("idle_horizontal")
 
@@ -23,6 +26,26 @@ func _process(delta):
 		motion = direction
 	
 	updateAnimation(delta)
+
+func onCollision(collision: KinematicCollision2D):
+	var timer: Timer = $Timers/PushTimer
+	if timer.is_stopped():
+		timer.start()
+		
+		pushee = collision.collider
+		pushDirection = collision.normal * -1
+
+func onCollisionEnd():
+	$Timers/PushTimer.stop()
+
+func onPushTimerTimeout():
+	if pushee != null:
+		push(pushee)
+
+func push(pushee: Entity):
+	pushee.motion = pushDirection
+	
+	pushee = null
 
 func updateAnimation(delta):
 	if motion.length() == 0.0:

@@ -124,3 +124,4 @@ __meta__ = {
 
 [node name="PushTimer" type="Timer" parent="Timers"]
 one_shot = true
+[connection signal="timeout" from="Timers/PushTimer" to="." method="onPushTimerTimeout"]

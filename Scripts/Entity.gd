@@ -15,9 +15,17 @@ func _physics_process(delta):
 		return
 	
 	#move_and_slide(motion.normalized() * speed, Vector2(0.0, 0.0))
-	var collides = move_and_collide(motion.normalized() * speed * delta)
-	if collides != null:
-		print(collides.collider.name)
+	var collision = move_and_collide(motion.normalized() * speed * delta)
+	if collision == null:
+		onCollisionEnd()
+	else:
+		onCollision(collision)
+
+func onCollision(collision: KinematicCollision2D):
+	pass
+
+func onCollisionEnd():
+	pass
 
 func updateCollision():
 	var y = $Sprite.transform.origin.y
