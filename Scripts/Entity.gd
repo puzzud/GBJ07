@@ -10,6 +10,9 @@ export var speed = 24.0
 func _ready():
 	updateCollision()
 
+func move(direction):
+	motion = direction
+
 func _physics_process(delta):
 	if motion.length() == 0.0:
 		return

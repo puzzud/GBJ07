@@ -23,7 +23,7 @@ func _process(delta):
 	
 	if intendedDirection.length() > 0.0:
 		direction = intendedDirection
-		motion = direction
+		move(direction)
 	
 	updateAnimation(delta)
 
@@ -43,7 +43,7 @@ func onPushTimerTimeout():
 		push(pushee)
 
 func push(pushee: Entity):
-	pushee.motion = pushDirection
+	pushee.move(pushDirection)
 	
 	pushee = null
 

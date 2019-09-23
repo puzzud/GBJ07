@@ -60,6 +60,7 @@ position = Vector2( 64, 8 )
 
 [node name="Block3" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
 position = Vector2( 80, 24 )
+fastened = true
 
 [node name="Block4" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
 position = Vector2( 32, 0 )
