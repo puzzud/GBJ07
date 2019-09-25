@@ -16,3 +16,7 @@ func onEndLevelTimerTimeout():
 
 func updateUi():
 	$UI/LevelNumber.text = str(Global.levelNumber)
+
+func getStage() -> Stage:
+	var stage: Stage = $Stage
+	return stage

@@ -43,7 +43,19 @@ func onPushTimerTimeout():
 		push(pushee)
 
 func push(pushee: Entity):
-	pushee.move(pushDirection)
+	if !(pushee is Block):
+		pushee.move(pushDirection)
+	else:
+		var block: Block = pushee
+		var boardCellCoordiantes = block.boardCellCoordinates
+		var pushTargetBoardCellCoordinates = boardCellCoordiantes + pushDirection
+		# TODO: Bound checking.
+		
+		var board = Global.game.getStage().board
+		var boardLevel = board[block.boardLevelIndex]
+		var boardCellContents = boardLevel[pushTargetBoardCellCoordinates.y][pushTargetBoardCellCoordinates.x]
+		if boardCellContents == null:
+			pushee.moveToBoardCoordinates(pushTargetBoardCellCoordinates)
 	
 	pushee = null
 

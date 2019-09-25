@@ -67,6 +67,11 @@ func insertEntityIntoBoardLevel(boardLevel: Array, levelIndex: int, entity) -> b
 	
 	boardLevel[y][x] = entity
 	
+	if entity is Block:
+		var block: Block = entity
+		block.boardLevelIndex = levelIndex
+		block.boardCellCoordinates = cellCoordinates
+	
 	#print("Level #" + str(levelIndex) + ": " + entity.name + ":" + str(x) + "," + str(y))
 	
 	return true

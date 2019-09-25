@@ -54,13 +54,13 @@ position = Vector2( 15, 15 )
 
 [node name="Block1" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
 position = Vector2( 48, 32 )
+fastened = true
 
 [node name="Block2" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
 position = Vector2( 64, 8 )
 
 [node name="Block3" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
-position = Vector2( 80, 24 )
-fastened = true
+position = Vector2( 96, 8 )
 
 [node name="Block4" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
 position = Vector2( 32, 0 )
@@ -71,7 +71,8 @@ __meta__ = {
 }
 
 [node name="Block5" parent="Stage/Contents/Level2" instance=ExtResource( 7 )]
-position = Vector2( 112, 8 )
+editor/display_folded = true
+position = Vector2( 96, 8 )
 
 [node name="Sprite" parent="Stage/Contents/Level2/Block5" index="0"]
 position = Vector2( 0, -4 )
