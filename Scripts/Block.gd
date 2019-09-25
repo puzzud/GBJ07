@@ -20,6 +20,16 @@ func move(direction):
 	if fastened:
 		return
 	
+	# If a block sits on top of this block,
+	# move it too.
+	var board = Global.game.getStage().board
+	var aboveBoardLevelIndex = boardLevelIndex + 1
+	if aboveBoardLevelIndex < board.size():
+		var boardLevel = board[aboveBoardLevelIndex]
+		var boardCellContents = boardLevel[boardCellCoordinates.y][boardCellCoordinates.x]
+		if boardCellContents != null:
+			boardCellContents.move(direction)
+	
 	.move(direction)
 
 func moveToBoardCoordinates(boardCellCoordinates: Vector2):
