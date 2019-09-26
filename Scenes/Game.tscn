@@ -16,10 +16,14 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000705242, 1.05031 )
 keep_aspect = 0
 projection = 1
-current = true
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Background" type="Control" parent="CanvasLayer"]
 visible = false
+
+[node name="Playfield" type="TextureRect" parent="CanvasLayer/Background"]
 margin_right = 160.0
 margin_bottom = 144.0
 texture = ExtResource( 2 )
@@ -27,8 +31,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Grid" type="TextureRect" parent="."]
-visible = false
+[node name="Grid" type="TextureRect" parent="CanvasLayer/Background"]
 margin_right = 160.0
 margin_bottom = 144.0
 texture = ExtResource( 3 )
@@ -54,15 +57,16 @@ fastened = true
 
 [node name="Level2" type="Spatial" parent="Stage/Contents"]
 
-[node name="UI" type="Control" parent="."]
-editor/display_folded = true
+[node name="Foreground" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="Foreground"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="LivesLabel" type="Label" parent="UI"]
+[node name="LivesLabel" type="Label" parent="Foreground/UI"]
 margin_left = 8.0
 margin_top = 128.0
 margin_right = 56.0
@@ -72,7 +76,7 @@ custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "Lives:"
 uppercase = true
 
-[node name="LivesAmount" type="Label" parent="UI"]
+[node name="LivesAmount" type="Label" parent="Foreground/UI"]
 margin_left = 56.0
 margin_top = 128.0
 margin_right = 72.0
@@ -82,7 +86,7 @@ custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "3"
 uppercase = true
 
-[node name="LevelLabel" type="Label" parent="UI"]
+[node name="LevelLabel" type="Label" parent="Foreground/UI"]
 margin_left = 96.0
 margin_top = 128.0
 margin_right = 144.0
@@ -92,7 +96,7 @@ custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "Level:"
 uppercase = true
 
-[node name="LevelNumber" type="Label" parent="UI"]
+[node name="LevelNumber" type="Label" parent="Foreground/UI"]
 margin_left = 144.0
 margin_top = 128.0
 margin_right = 160.0

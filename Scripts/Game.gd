@@ -15,7 +15,7 @@ func onEndLevelTimerTimeout():
 	get_tree().reload_current_scene()
 
 func updateUi():
-	$UI/LevelNumber.text = str(Global.levelNumber)
+	$Foreground/UI/LevelNumber.text = str(Global.levelNumber)
 
 func getStage() -> Stage:
 	var stage: Stage = $Stage
