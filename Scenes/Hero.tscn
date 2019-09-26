@@ -96,12 +96,13 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[node name="Hero" type="KinematicBody2D"]
+[node name="Hero" type="KinematicBody"]
 script = ExtResource( 1 )
+speed = 0.24
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="Sprite" type="Sprite3D" parent="."]
 centered = false
+texture = ExtResource( 2 )
 hframes = 12
 region_rect = Rect2( 0, 0, 16, 16 )
 
@@ -113,12 +114,8 @@ anims/walk_horizontal = SubResource( 4 )
 anims/walk_vertical_down = SubResource( 5 )
 anims/walk_vertical_up = SubResource( 6 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( 8, 14 )
+[node name="CollisionPolygon2D" type="CollisionPolygon" parent="."]
 polygon = PoolVector2Array( 5, -1, 0, 2, -5, -1, 0, -4 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Timers" type="Node" parent="."]
 

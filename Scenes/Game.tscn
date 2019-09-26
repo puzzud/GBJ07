@@ -9,10 +9,17 @@
 [ext_resource path="res://Scenes/Block.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Graphics/Fonts/EarlyGameBoyFont8x8.tres" type="DynamicFont" id=8]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Spatial"]
 script = ExtResource( 1 )
 
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000705242, 1.05031 )
+keep_aspect = 0
+projection = 1
+current = true
+
 [node name="Background" type="TextureRect" parent="."]
+visible = false
 margin_right = 160.0
 margin_bottom = 144.0
 texture = ExtResource( 2 )
@@ -21,6 +28,7 @@ __meta__ = {
 }
 
 [node name="Grid" type="TextureRect" parent="."]
+visible = false
 margin_right = 160.0
 margin_bottom = 144.0
 texture = ExtResource( 3 )
@@ -28,53 +36,23 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Stage" type="Node2D" parent="."]
+[node name="Stage" type="Spatial" parent="."]
 script = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Floor" type="Node2D" parent="Stage"]
+[node name="Floor" type="Spatial" parent="Stage"]
 
 [node name="GoalCell" parent="Stage/Floor" instance=ExtResource( 5 )]
-position = Vector2( 128, 8 )
 
-[node name="Contents" type="YSort" parent="Stage"]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Contents" type="Spatial" parent="Stage"]
 
-[node name="Level1" type="YSort" parent="Stage/Contents"]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Level1" type="Spatial" parent="Stage/Contents"]
 
 [node name="Hero" parent="Stage/Contents/Level1" instance=ExtResource( 6 )]
-position = Vector2( 15, 15 )
 
 [node name="Block1" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
-position = Vector2( 48, 32 )
 fastened = true
 
-[node name="Block2" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
-position = Vector2( 48, 0 )
-
-[node name="Block3" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
-position = Vector2( 96, 8 )
-
-[node name="Block4" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
-position = Vector2( 32, 0 )
-
-[node name="Level2" type="YSort" parent="Stage/Contents"]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Block5" parent="Stage/Contents/Level2" instance=ExtResource( 7 )]
-position = Vector2( 96, 8 )
-
-[node name="Sprite" parent="Stage/Contents/Level2/Block5" index="0"]
-position = Vector2( 0, -4 )
+[node name="Level2" type="Spatial" parent="Stage/Contents"]
 
 [node name="UI" type="Control" parent="."]
 editor/display_folded = true
@@ -130,5 +108,3 @@ uppercase = true
 wait_time = 2.0
 one_shot = true
 [connection signal="timeout" from="Timers/EndLevelTimer" to="." method="onEndLevelTimerTimeout"]
-
-[editable path="Stage/Contents/Level2/Block5"]

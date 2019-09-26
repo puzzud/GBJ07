@@ -1,9 +1,10 @@
-extends Node2D
+extends Node
 
 func _ready():
 	pass
 
 func onBodyEntered(body):
+	return
 	# TODO: Do this with collision layer & mask?
 	if !(body is Hero):
 		return

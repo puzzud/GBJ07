@@ -2,24 +2,24 @@ extends Entity
 class_name Hero
 
 var pushee: Entity = null
-var pushDirection: Vector2 = Vector2(0, 0)
+var pushDirection: Vector3 = Vector3(0, 0, 0)
 
 func _ready():
 	$AnimationPlayer.play("idle_horizontal")
 
 func _process(delta):
-	intendedDirection = Vector2(0.0, 0.0)
+	intendedDirection = Vector3(0.0, 0.0, 0.0)
 	
 	if Input.is_action_pressed("ui_left"):
 		intendedDirection.x -= 1.0
 	if Input.is_action_pressed("ui_right"):
 		intendedDirection.x += 1.0
 	if Input.is_action_pressed("ui_up"):
-		intendedDirection.y -= 1.0
-	if Input.is_action_pressed("ui_down"):
 		intendedDirection.y += 1.0
+	if Input.is_action_pressed("ui_down"):
+		intendedDirection.y -= 1.0
 	
-	motion = Vector2(0.0, 0.0)
+	motion = Vector3(0.0, 0.0, 0.0)
 	
 	if intendedDirection.length() > 0.0:
 		direction = intendedDirection
@@ -27,7 +27,7 @@ func _process(delta):
 	
 	updateAnimation(delta)
 
-func onCollision(collision: KinematicCollision2D):
+func onCollision(collision: KinematicCollision):
 	var timer: Timer = $Timers/PushTimer
 	if timer.is_stopped():
 		timer.start()
@@ -63,9 +63,9 @@ func updateAnimation(delta):
 	if motion.length() == 0.0:
 		if direction.x != 0.0:
 			$AnimationPlayer.play("idle_horizontal")
-		elif direction.y < 0.0:
-			$AnimationPlayer.play("idle_vertical_up")
 		elif direction.y > 0.0:
+			$AnimationPlayer.play("idle_vertical_up")
+		elif direction.y < 0.0:
 			$AnimationPlayer.play("idle_vertical_down")
 	else:
 		if direction.x != 0.0:
@@ -73,7 +73,7 @@ func updateAnimation(delta):
 			$Sprite.flip_h = direction.x < 0.0
 		else:
 			if direction.y != 0.0:
-				if direction.y < 0.0:
+				if direction.y > 0.0:
 					$AnimationPlayer.play("walk_vertical_up")
-				elif direction.y > 0.0:
+				elif direction.y < 0.0:
 					$AnimationPlayer.play("walk_vertical_down")

@@ -3,21 +3,22 @@
 [ext_resource path="res://Scripts/Block.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Block1.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 4 )
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.063, 0.063, 0.063 )
 
-[node name="Block" type="KinematicBody2D"]
+[node name="Block" type="KinematicBody"]
 script = ExtResource( 1 )
+speed = 0.24
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="Sprite" type="Sprite3D" parent="."]
 centered = false
+texture = ExtResource( 2 )
 hframes = 2
 region_rect = Rect2( 0, 0, 16, 16 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 8, 12 )
+[node name="CollisionShape2D" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.063, 0.063, 0 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
+
+[node name="CSGBox" type="CSGBox" parent="."]
+visible = false

@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 class_name Stage
 
 const cellWidth = 16
@@ -30,12 +30,13 @@ func buildBoard() -> Array:
 		
 	return board
 
-func getCellCoordinatesFromBlock(block) -> Vector2:
-	var coordinates = Vector2()
+func getCellCoordinatesFromBlock(block) -> Vector3:
+	var coordinates = Vector3()
 	
-	coordinates.x = int(block.position.x / cellWidth)
+	var blockPosition = block.get_global_transform().origin
+	coordinates.x = int(blockPosition.x / cellWidth)
 	# TODO: +8 should come from block, as its offset.
-	coordinates.y = int((block.position.y + 8) / cellHeight)
+	coordinates.y = int((blockPosition.y + 8) / cellHeight)
 	
 	return coordinates
 

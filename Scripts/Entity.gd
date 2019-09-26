@@ -1,9 +1,9 @@
-extends KinematicBody2D
+extends KinematicBody
 class_name Entity
 
-var direction = Vector2(1.0, 0.0)
-var intendedDirection = Vector2(0.0, 0.0)
-var motion = Vector2(0.0, 0.0)
+var direction = Vector3(1.0, 0.0, 0.0)
+var intendedDirection = Vector3(0.0, 0.0, 0.0)
+var motion = Vector3(0.0, 0.0, 0.0)
 
 export var speed = 24.0
 
@@ -24,7 +24,7 @@ func _physics_process(delta):
 	else:
 		onCollision(collision)
 
-func onCollision(collision: KinematicCollision2D):
+func onCollision(collision: KinematicCollision):
 	pass
 
 func onCollisionEnd():
