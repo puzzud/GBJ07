@@ -17,13 +17,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000705242, 1.05031 )
 keep_aspect = 0
 projection = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
+[node name="Background" type="CanvasLayer" parent="."]
 
-[node name="Background" type="Control" parent="CanvasLayer"]
+[node name="Background" type="Control" parent="Background"]
 visible = false
 
-[node name="Playfield" type="TextureRect" parent="CanvasLayer/Background"]
+[node name="Playfield" type="TextureRect" parent="Background/Background"]
 margin_right = 160.0
 margin_bottom = 144.0
 texture = ExtResource( 2 )
@@ -31,7 +30,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Grid" type="TextureRect" parent="CanvasLayer/Background"]
+[node name="Grid" type="TextureRect" parent="Background/Background"]
 margin_right = 160.0
 margin_bottom = 144.0
 texture = ExtResource( 3 )
@@ -39,25 +38,34 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Stage" type="Spatial" parent="."]
+[node name="BackgroundSprite" type="Sprite3D" parent="Background"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.623515 )
+cast_shadow = 0
+texture = ExtResource( 2 )
+
+[node name="3D" type="CanvasLayer" parent="."]
+
+[node name="Stage" type="Spatial" parent="3D"]
 script = ExtResource( 4 )
 
-[node name="Floor" type="Spatial" parent="Stage"]
+[node name="Floor" type="Spatial" parent="3D/Stage"]
 
-[node name="GoalCell" parent="Stage/Floor" instance=ExtResource( 5 )]
+[node name="GoalCell" parent="3D/Stage/Floor" instance=ExtResource( 5 )]
 
-[node name="Contents" type="Spatial" parent="Stage"]
+[node name="Contents" type="Spatial" parent="3D/Stage"]
 
-[node name="Level1" type="Spatial" parent="Stage/Contents"]
+[node name="Level1" type="Spatial" parent="3D/Stage/Contents"]
 
-[node name="Hero" parent="Stage/Contents/Level1" instance=ExtResource( 6 )]
+[node name="Hero" parent="3D/Stage/Contents/Level1" instance=ExtResource( 6 )]
 
-[node name="Block1" parent="Stage/Contents/Level1" instance=ExtResource( 7 )]
+[node name="Block1" parent="3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
 fastened = true
 
-[node name="Level2" type="Spatial" parent="Stage/Contents"]
+[node name="Level2" type="Spatial" parent="3D/Stage/Contents"]
 
 [node name="Foreground" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 2
 
 [node name="UI" type="Control" parent="Foreground"]
 margin_right = 40.0
