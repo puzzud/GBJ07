@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Block1.png-8d232433480939ca32bcabcfddb442d8.s3tc.stex"
-path.etc="res://.import/Block1.png-8d232433480939ca32bcabcfddb442d8.etc.stex"
+path.s3tc="res://.import/Block2.png-994aec17ea740f11f3285b682c055c61.s3tc.stex"
+path.etc="res://.import/Block2.png-994aec17ea740f11f3285b682c055c61.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Block1.png"
-dest_files=[ "res://.import/Block1.png-8d232433480939ca32bcabcfddb442d8.s3tc.stex", "res://.import/Block1.png-8d232433480939ca32bcabcfddb442d8.etc.stex" ]
+source_file="res://Graphics/Block2.png"
+dest_files=[ "res://.import/Block2.png-994aec17ea740f11f3285b682c055c61.s3tc.stex", "res://.import/Block2.png-994aec17ea740f11f3285b682c055c61.etc.stex" ]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

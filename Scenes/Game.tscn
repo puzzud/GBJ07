@@ -16,6 +16,7 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000705242, 1.05031 )
 keep_aspect = 0
 projection = 1
+current = true
 size = 1.6
 
 [node name="Background" type="CanvasLayer" parent="."]
@@ -43,6 +44,9 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.623515 )
 cast_shadow = 0
 texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="3D" type="CanvasLayer" parent="."]
 
@@ -52,15 +56,26 @@ script = ExtResource( 4 )
 [node name="Floor" type="Spatial" parent="3D/Stage"]
 
 [node name="GoalCell" parent="3D/Stage/Floor" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.365378, -0.178701, 0 )
 
 [node name="Contents" type="Spatial" parent="3D/Stage"]
 
 [node name="Level1" type="Spatial" parent="3D/Stage/Contents"]
 
 [node name="Hero" parent="3D/Stage/Contents/Level1" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59604, 0.1, 0 )
 
 [node name="Block1" parent="3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
-fastened = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
+
+[node name="Sprite" parent="3D/Stage/Contents/Level1/Block1" index="0"]
+visible = false
+
+[node name="Block2" parent="3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.4, 0 )
+
+[node name="CSGBox" parent="3D/Stage/Contents/Level1/Block2" index="2"]
+visible = false
 
 [node name="Level2" type="Spatial" parent="3D/Stage/Contents"]
 
@@ -121,3 +136,7 @@ uppercase = true
 wait_time = 2.0
 one_shot = true
 [connection signal="timeout" from="Timers/EndLevelTimer" to="." method="onEndLevelTimerTimeout"]
+
+[editable path="3D/Stage/Contents/Level1/Block1"]
+
+[editable path="3D/Stage/Contents/Level1/Block2"]

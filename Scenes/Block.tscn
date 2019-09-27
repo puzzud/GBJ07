@@ -1,17 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Block.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Block1.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/Block2.png" type="Texture" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.063, 0.063, 0.063 )
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
+albedo_texture = ExtResource( 3 )
 
 [node name="Block" type="KinematicBody"]
 script = ExtResource( 1 )
 speed = 0.24
 
 [node name="Sprite" type="Sprite3D" parent="."]
+cast_shadow = 0
 centered = false
+double_sided = false
 texture = ExtResource( 2 )
 hframes = 2
 region_rect = Rect2( 0, 0, 16, 16 )
@@ -21,4 +28,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.063, 0.063, 0 )
 shape = SubResource( 1 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
-visible = false
+transform = Transform( -5.67828e-08, 1.09278e-08, 1.5, 0.75, 0.433013, 0, -1.29904, 0.25, -6.55671e-08, 0.08, 0.065, 0 )
+width = 0.1
+height = 0.1
+depth = 0.1
+material = SubResource( 2 )
