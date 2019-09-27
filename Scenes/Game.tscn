@@ -16,6 +16,7 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000705242, 1.05031 )
 keep_aspect = 0
 projection = 1
+size = 1.6
 
 [node name="Background" type="CanvasLayer" parent="."]
 
