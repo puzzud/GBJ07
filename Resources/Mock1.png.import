@@ -2,19 +2,21 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mock1.png-e9e7ba666ab5f6055500e4f4293e4890.stex"
+path.s3tc="res://.import/Mock1.png-e9e7ba666ab5f6055500e4f4293e4890.s3tc.stex"
+path.etc="res://.import/Mock1.png-e9e7ba666ab5f6055500e4f4293e4890.etc.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Resources/Mock1.png"
-dest_files=[ "res://.import/Mock1.png-e9e7ba666ab5f6055500e4f4293e4890.stex" ]
+dest_files=[ "res://.import/Mock1.png-e9e7ba666ab5f6055500e4f4293e4890.s3tc.stex", "res://.import/Mock1.png-e9e7ba666ab5f6055500e4f4293e4890.etc.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
@@ -23,7 +25,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
