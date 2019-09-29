@@ -62,15 +62,6 @@ size = 1.6
 [node name="Stage" type="Spatial" parent="ViewportContainer3D/Viewport3D"]
 script = ExtResource( 4 )
 
-[node name="BackgroundSprite" type="Sprite3D" parent="ViewportContainer3D/Viewport3D/Stage"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.623515 )
-visible = false
-cast_shadow = 0
-texture = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="Floor" type="Spatial" parent="ViewportContainer3D/Viewport3D/Stage"]
 
 [node name="GoalCell" parent="ViewportContainer3D/Viewport3D/Stage/Floor" instance=ExtResource( 5 )]
