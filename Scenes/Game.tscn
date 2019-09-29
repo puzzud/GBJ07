@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Background1.png" type="Texture" id=2]
@@ -9,10 +9,6 @@
 [ext_resource path="res://Scenes/Block.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Graphics/Fonts/EarlyGameBoyFont8x8.tres" type="DynamicFont" id=8]
 
-[sub_resource type="World" id=2]
-
-[sub_resource type="World" id=1]
-
 [node name="Game" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -22,7 +18,6 @@ margin_bottom = 40.0
 
 [node name="Viewport2D" type="Viewport" parent="ViewportContainer2D"]
 size = Vector2( 160, 144 )
-world = SubResource( 2 )
 handle_input_locally = false
 disable_3d = true
 usage = 0
@@ -47,14 +42,15 @@ __meta__ = {
 }
 
 [node name="ViewportContainer3D" type="ViewportContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 160.0
+margin_bottom = 144.0
 
 [node name="Viewport3D" type="Viewport" parent="ViewportContainer3D"]
-size = Vector2( 160, 140 )
-world = SubResource( 1 )
+size = Vector2( 160, 144 )
 transparent_bg = true
+handle_input_locally = false
 render_target_clear_mode = 1
+render_target_update_mode = 3
 
 [node name="Camera" type="Camera" parent="ViewportContainer3D/Viewport3D"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000705242, 1.05031 )
