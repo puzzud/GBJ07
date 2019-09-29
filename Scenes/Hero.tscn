@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Hero.gd" type="Script" id=1]
 [ext_resource path="res://Resources/SpriteMock1.png" type="Texture" id=2]
@@ -96,6 +96,9 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.05, 0.05, 0.05 )
+
 [node name="Hero" type="KinematicBody"]
 script = ExtResource( 1 )
 speed = 0.24
@@ -114,8 +117,9 @@ anims/walk_horizontal = SubResource( 4 )
 anims/walk_vertical_down = SubResource( 5 )
 anims/walk_vertical_up = SubResource( 6 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon" parent="."]
-polygon = PoolVector2Array( 5, -1, 0, 2, -5, -1, 0, -4 )
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0.05, 0 )
+shape = SubResource( 7 )
 
 [node name="Timers" type="Node" parent="."]
 

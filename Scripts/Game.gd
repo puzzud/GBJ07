@@ -18,5 +18,5 @@ func updateUi():
 	$Foreground/UI/LevelNumber.text = str(Global.levelNumber)
 
 func getStage() -> Stage:
-	var stage: Stage = $Stage
+	var stage: Stage = $ViewportContainer3D/Viewport3D/Stage
 	return stage

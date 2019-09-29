@@ -32,7 +32,7 @@ func move(direction):
 	
 	.move(direction)
 
-func moveToBoardCoordinates(boardCellCoordinates: Vector2):
+func moveToBoardCoordinates(boardCellCoordinates: Vector3):
 	var directionToCell = boardCellCoordinates - self.boardCellCoordinates
 	
 	if directionToCell.x > 0.0:
