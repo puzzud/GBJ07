@@ -56,7 +56,7 @@ render_target_clear_mode = 1
 render_target_update_mode = 3
 
 [node name="Camera" type="Camera" parent="ViewportContainer3D/Viewport3D"]
-transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, -0.899295, 1.05031 )
+transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0.5, 1 )
 keep_aspect = 0
 projection = 1
 current = true
@@ -86,24 +86,28 @@ material = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59604, 0.1, 0 )
 
 [node name="Block1" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
 
 [node name="Sprite" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block1" index="0"]
 visible = false
 
+[node name="CSGBox" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block1" index="2"]
+transform = Transform( 1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0.08, 0.065, 0 )
+
 [node name="Block2" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.4, 0 )
 
+[node name="Sprite" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block2" index="0"]
+visible = false
+
 [node name="CSGBox" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block2" index="2"]
-transform = Transform( -6.55671e-08, 2.18557e-08, 1.5, 1.5, 9.55343e-16, 6.55671e-08, 0, 0.5, -6.55671e-08, 0.08, 0.065, 0 )
+transform = Transform( 1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0.08, 0.065, 0 )
 
 [node name="Block3" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.4, 0 )
 
 [node name="CSGBox" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block3" index="2"]
+transform = Transform( 1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0.08, 0.065, 0 )
 visible = false
 
 [node name="Level2" type="Spatial" parent="ViewportContainer3D/Viewport3D/Stage/Contents"]
