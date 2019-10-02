@@ -16,9 +16,9 @@ script = ExtResource( 1 )
 speed = 0.24
 
 [node name="Sprite" type="Sprite3D" parent="."]
+transform = Transform( 1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 0, 0 )
 cast_shadow = 0
-centered = false
-double_sided = false
+pixel_size = 0.0625
 texture = ExtResource( 2 )
 hframes = 2
 region_rect = Rect2( 0, 0, 16, 16 )
@@ -28,8 +28,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.063, 0.063, 0 )
 shape = SubResource( 1 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( -5.67828e-08, 1.09278e-08, 1.5, 0.75, 0.433013, 0, -1.29904, 0.25, -6.55671e-08, 0.08, 0.065, 0 )
-width = 0.1
-height = 0.1
-depth = 0.1
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0 )
+width = 1.5
+height = 0.5
+depth = 1.5
 material = SubResource( 2 )

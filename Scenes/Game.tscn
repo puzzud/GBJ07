@@ -16,17 +16,18 @@ albedo_color = Color( 0.682353, 0.729412, 0.537255, 1 )
 script = ExtResource( 1 )
 
 [node name="ViewportContainer2D" type="ViewportContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 160.0
+margin_bottom = 144.0
 
 [node name="Viewport2D" type="Viewport" parent="ViewportContainer2D"]
-size = Vector2( 160, 144 )
+size = Vector2( 320, 288 )
 handle_input_locally = false
 disable_3d = true
 usage = 0
 render_target_update_mode = 3
 
 [node name="Background" type="Control" parent="ViewportContainer2D/Viewport2D"]
+rect_scale = Vector2( 2, 2 )
 
 [node name="Playfield" type="TextureRect" parent="ViewportContainer2D/Viewport2D/Background"]
 margin_right = 160.0
@@ -45,22 +46,22 @@ __meta__ = {
 }
 
 [node name="ViewportContainer3D" type="ViewportContainer" parent="."]
-margin_right = 160.0
-margin_bottom = 144.0
+margin_right = 320.0
+margin_bottom = 288.0
 
 [node name="Viewport3D" type="Viewport" parent="ViewportContainer3D"]
-size = Vector2( 160, 144 )
+size = Vector2( 320, 288 )
 transparent_bg = true
 handle_input_locally = false
 render_target_clear_mode = 1
 render_target_update_mode = 3
 
 [node name="Camera" type="Camera" parent="ViewportContainer3D/Viewport3D"]
-transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0.5, 1 )
+transform = Transform( 1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 6.75, -1.82, 6.95 )
 keep_aspect = 0
 projection = 1
 current = true
-size = 1.6
+size = 15.0
 
 [node name="Stage" type="Spatial" parent="ViewportContainer3D/Viewport3D"]
 script = ExtResource( 4 )
@@ -83,37 +84,506 @@ material = SubResource( 1 )
 [node name="Level1" type="Spatial" parent="ViewportContainer3D/Viewport3D/Stage/Contents"]
 
 [node name="Hero" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59604, 0.1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40396, 6.1, 0.5 )
 
-[node name="Block1" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0 )
+[node name="Block" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+editor/display_folded = true
 
-[node name="Sprite" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block1" index="0"]
-visible = false
+[node name="Block161" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 9, 0.5 )
 
-[node name="CSGBox" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block1" index="2"]
-transform = Transform( 1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0.08, 0.065, 0 )
+[node name="Block163" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 9, 0.5 )
+
+[node name="Block14" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+
+[node name="Block30" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+
+[node name="Block38" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0 )
+
+[node name="Block44" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
+
+[node name="Block53" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0 )
+
+[node name="Block63" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 0 )
+
+[node name="Block73" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5, 0 )
+
+[node name="Block81" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0 )
+
+[node name="Block93" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.5, 0 )
+
+[node name="Block101" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0 )
+
+[node name="Block111" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5, 0 )
+
+[node name="Block123" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, 0 )
+
+[node name="Block131" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.5, 0 )
+
+[node name="Block142" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, 0 )
+
+[node name="Block151" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.5, 0 )
 
 [node name="Block2" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.4, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0 )
 
-[node name="Sprite" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block2" index="0"]
-visible = false
+[node name="Block19" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.5, 0 )
 
-[node name="CSGBox" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block2" index="2"]
-transform = Transform( 1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0.08, 0.065, 0 )
+[node name="Block26" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 3, 0 )
+
+[node name="Block39" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 4.5, 0 )
+
+[node name="Block45" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 6, 0 )
+
+[node name="Block54" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 7.5, 0 )
+
+[node name="Block64" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 9, 0 )
+
+[node name="Block74" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 10.5, 0 )
+
+[node name="Block82" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 12, 0 )
+
+[node name="Block94" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 13.5, 0 )
+
+[node name="Block104" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 15, 0 )
+
+[node name="Block114" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 16.5, 0 )
+
+[node name="Block124" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 18, 0 )
+
+[node name="Block133" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 19.5, 0 )
+
+[node name="Block143" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 21, 0 )
+
+[node name="Block152" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 22.5, 0 )
 
 [node name="Block3" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.4, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
 
-[node name="CSGBox" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block3" index="2"]
-transform = Transform( 1.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0.08, 0.065, 0 )
-visible = false
+[node name="Block13" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, 0 )
+
+[node name="Block29" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, 0 )
+
+[node name="Block37" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4.5, 0 )
+
+[node name="Block43" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 6, 0 )
+
+[node name="Block60" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 7.5, 0 )
+
+[node name="Block70" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 9, 0 )
+
+[node name="Block80" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 10.5, 0 )
+
+[node name="Block90" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 12, 0 )
+
+[node name="Block100" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 13.5, 0 )
+
+[node name="Block110" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 15, 0 )
+
+[node name="Block120" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 16.5, 0 )
+
+[node name="Block130" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 18, 0 )
+
+[node name="Block139" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 19.5, 0 )
+
+[node name="Block149" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 21, 0 )
+
+[node name="Block159" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 22.5, 0 )
+
+[node name="Block4" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 0 )
+
+[node name="Block12" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.5, 0 )
+
+[node name="Block28" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, 0 )
+
+[node name="Block36" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 4.5, 0 )
+
+[node name="Block42" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 6, 0 )
+
+[node name="Block52" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 7.5, 0 )
+
+[node name="Block61" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 9, 0 )
+
+[node name="Block72" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 10.5, 0 )
+
+[node name="Block83" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 12, 0 )
+
+[node name="Block91" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 13.5, 0 )
+
+[node name="Block103" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 15, 0 )
+
+[node name="Block113" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 16.5, 0 )
+
+[node name="Block122" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 18, 0 )
+
+[node name="Block132" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 19.5, 0 )
+
+[node name="Block141" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 21, 0 )
+
+[node name="Block153" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 22.5, 0 )
+
+[node name="Block5" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
+
+[node name="Block17" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, 0 )
+
+[node name="Block24" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 0 )
+
+[node name="Block32" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4.5, 0 )
+
+[node name="Block48" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 6, 0 )
+
+[node name="Block56" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 7.5, 0 )
+
+[node name="Block66" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 9, 0 )
+
+[node name="Block76" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 10.5, 0 )
+
+[node name="Block86" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 12, 0 )
+
+[node name="Block96" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 13.5, 0 )
+
+[node name="Block106" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 15, 0 )
+
+[node name="Block116" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 16.5, 0 )
+
+[node name="Block126" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 18, 0 )
+
+[node name="Block135" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 19.5, 0 )
+
+[node name="Block145" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 21, 0 )
+
+[node name="Block155" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 22.5, 0 )
+
+[node name="Block6" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 0 )
+
+[node name="Block11" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1.5, 0 )
+
+[node name="Block21" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 3, 0 )
+
+[node name="Block34" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 4.5, 0 )
+
+[node name="Block47" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 6, 0 )
+
+[node name="Block55" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 7.5, 0 )
+
+[node name="Block65" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 9, 0 )
+
+[node name="Block162" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 7.5, 0.5 )
+
+[node name="Block164" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 7.5, 0.5 )
+
+[node name="Block75" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 10.5, 0 )
+
+[node name="Block85" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 12, 0 )
+
+[node name="Block95" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 13.5, 0 )
+
+[node name="Block105" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 15, 0 )
+
+[node name="Block115" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 16.5, 0 )
+
+[node name="Block125" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 18, 0 )
+
+[node name="Block134" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 19.5, 0 )
+
+[node name="Block144" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 21, 0 )
+
+[node name="Block154" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 22.5, 0 )
+
+[node name="Block7" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0 )
+
+[node name="Block15" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.5, 0 )
+
+[node name="Block22" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 0 )
+
+[node name="Block31" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4.5, 0 )
+
+[node name="Block49" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 6, 0 )
+
+[node name="Block57" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 7.5, 0 )
+
+[node name="Block67" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 9, 0 )
+
+[node name="Block77" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 10.5, 0 )
+
+[node name="Block87" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 12, 0 )
+
+[node name="Block97" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 13.5, 0 )
+
+[node name="Block107" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 15, 0 )
+
+[node name="Block117" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 16.5, 0 )
+
+[node name="Block127" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 18, 0 )
+
+[node name="Block136" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 19.5, 0 )
+
+[node name="Block146" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 21, 0 )
+
+[node name="Block156" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 22.5, 0 )
+
+[node name="Block8" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 0, 0 )
+
+[node name="Block18" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 1.5, 0 )
+
+[node name="Block27" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 3, 0 )
+
+[node name="Block40" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 4.5, 0 )
+
+[node name="Block46" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 6, 0 )
+
+[node name="Block59" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 7.5, 0 )
+
+[node name="Block69" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 9, 0 )
+
+[node name="Block79" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 10.5, 0 )
+
+[node name="Block89" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 12, 0 )
+
+[node name="Block99" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 13.5, 0 )
+
+[node name="Block109" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 15, 0 )
+
+[node name="Block119" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 16.5, 0 )
+
+[node name="Block129" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 18, 0 )
+
+[node name="Block138" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 19.5, 0 )
+
+[node name="Block148" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 21, 0 )
+
+[node name="Block158" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5, 22.5, 0 )
+
+[node name="Block9" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0 )
+
+[node name="Block20" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1.5, 0 )
+
+[node name="Block25" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 3, 0 )
+
+[node name="Block33" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 4.5, 0 )
+
+[node name="Block50" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 6, 0 )
+
+[node name="Block58" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 7.5, 0 )
+
+[node name="Block68" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 9, 0 )
+
+[node name="Block78" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 10.5, 0 )
+
+[node name="Block88" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 12, 0 )
+
+[node name="Block98" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 13.5, 0 )
+
+[node name="Block108" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 15, 0 )
+
+[node name="Block118" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 16.5, 0 )
+
+[node name="Block128" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 18, 0 )
+
+[node name="Block137" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 19.5, 0 )
+
+[node name="Block147" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 21, 0 )
+
+[node name="Block157" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 22.5, 0 )
+
+[node name="Block10" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, 0 )
+
+[node name="Block16" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 1.5, 0 )
+
+[node name="Block23" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, 0 )
+
+[node name="Block35" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 4.5, 0 )
+
+[node name="Block41" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 6, 0 )
+
+[node name="Block51" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 7.5, 0 )
+
+[node name="Block62" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 9, 0 )
+
+[node name="Block71" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 10.5, 0 )
+
+[node name="Block84" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 12, 0 )
+
+[node name="Block92" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 13.5, 0 )
+
+[node name="Block102" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 15, 0 )
+
+[node name="Block112" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 16.5, 0 )
+
+[node name="Block121" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 18, 0 )
+
+[node name="Block140" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 19.5, 0 )
+
+[node name="Block160" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 22.5, 0 )
+
+[node name="Block150" parent="ViewportContainer3D/Viewport3D/Stage/Contents/Level1" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 21, 0 )
 
 [node name="Level2" type="Spatial" parent="ViewportContainer3D/Viewport3D/Stage/Contents"]
 
 [node name="Foreground" type="CanvasLayer" parent="."]
-editor/display_folded = true
 layer = 2
 
 [node name="UI" type="Control" parent="Foreground"]
@@ -125,9 +595,9 @@ __meta__ = {
 
 [node name="LivesLabel" type="Label" parent="Foreground/UI"]
 margin_left = 8.0
-margin_top = 128.0
+margin_top = 272.0
 margin_right = 56.0
-margin_bottom = 138.0
+margin_bottom = 282.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "Lives:"
@@ -135,9 +605,9 @@ uppercase = true
 
 [node name="LivesAmount" type="Label" parent="Foreground/UI"]
 margin_left = 56.0
-margin_top = 128.0
+margin_top = 272.0
 margin_right = 72.0
-margin_bottom = 138.0
+margin_bottom = 282.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "3"
@@ -145,9 +615,9 @@ uppercase = true
 
 [node name="LevelLabel" type="Label" parent="Foreground/UI"]
 margin_left = 96.0
-margin_top = 128.0
+margin_top = 272.0
 margin_right = 144.0
-margin_bottom = 138.0
+margin_bottom = 282.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "Level:"
@@ -155,9 +625,9 @@ uppercase = true
 
 [node name="LevelNumber" type="Label" parent="Foreground/UI"]
 margin_left = 144.0
-margin_top = 128.0
+margin_top = 272.0
 margin_right = 160.0
-margin_bottom = 138.0
+margin_bottom = 282.0
 custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 text = "1"
@@ -170,8 +640,6 @@ wait_time = 2.0
 one_shot = true
 [connection signal="timeout" from="Timers/EndLevelTimer" to="." method="onEndLevelTimerTimeout"]
 
-[editable path="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block1"]
+[editable path="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block"]
 
-[editable path="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block2"]
-
-[editable path="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block3"]
+[editable path="ViewportContainer3D/Viewport3D/Stage/Contents/Level1/Block14"]

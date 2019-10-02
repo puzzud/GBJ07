@@ -54,8 +54,8 @@ Global="*res://Scenes/Global.tscn"
 
 [display]
 
-window/size/width=160
-window/size/height=144
+window/size/width=320
+window/size/height=288
 window/size/test_width=640
 window/size/test_height=576
 window/stretch/mode="2d"
@@ -97,6 +97,10 @@ ui_down={
 2d_physics/layer_1="Level0"
 2d_physics/layer_2="Level1"
 2d_physics/layer_3="Level2"
+
+[physics]
+
+3d/default_gravity_vector=Vector3( 0, 0, -1 )
 
 [rendering]
 

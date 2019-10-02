@@ -1,7 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Hero.gd" type="Script" id=1]
 [ext_resource path="res://Resources/SpriteMock1.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_transparent = true
+flags_unshaded = true
+params_billboard_mode = 1
+params_billboard_keep_scale = true
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle_horizontal"
@@ -101,10 +107,13 @@ extents = Vector3( 0.05, 0.05, 0.05 )
 
 [node name="Hero" type="KinematicBody"]
 script = ExtResource( 1 )
-speed = 0.24
+speed = 1.5
 
 [node name="Sprite" type="Sprite3D" parent="."]
-centered = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 )
+material_override = SubResource( 8 )
+offset = Vector2( 0, 8 )
+pixel_size = 0.0625
 texture = ExtResource( 2 )
 hframes = 12
 region_rect = Rect2( 0, 0, 16, 16 )
