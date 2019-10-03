@@ -3,14 +3,13 @@
 [ext_resource path="res://Scripts/Hero.gd" type="Script" id=1]
 [ext_resource path="res://Resources/SpriteMock1.png" type="Texture" id=2]
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
 flags_unshaded = true
 params_billboard_mode = 1
 params_billboard_keep_scale = true
 
-[sub_resource type="Animation" id=1]
-resource_name = "idle_horizontal"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -24,8 +23,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle_vertical_down"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -39,8 +37,7 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle_vertical_up"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -52,22 +49,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 8 ]
-}
-
-[sub_resource type="Animation" id=4]
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -83,7 +64,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 4, 5, 6, 7 ]
+"values": [ 0, 1, 2, 3 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -99,10 +80,26 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
+"values": [ 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=8]
 extents = Vector3( 0.05, 0.05, 0.05 )
 
 [node name="Hero" type="KinematicBody"]
@@ -110,8 +107,8 @@ script = ExtResource( 1 )
 speed = 1.5
 
 [node name="Sprite" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0 )
-material_override = SubResource( 8 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+material_override = SubResource( 1 )
 offset = Vector2( 0, 8 )
 pixel_size = 0.0625
 texture = ExtResource( 2 )
@@ -119,16 +116,16 @@ hframes = 12
 region_rect = Rect2( 0, 0, 16, 16 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle_horizontal = SubResource( 1 )
-anims/idle_vertical_down = SubResource( 2 )
-anims/idle_vertical_up = SubResource( 3 )
-anims/walk_horizontal = SubResource( 4 )
-anims/walk_vertical_down = SubResource( 5 )
-anims/walk_vertical_up = SubResource( 6 )
+anims/idle_horizontal = SubResource( 2 )
+anims/idle_vertical_down = SubResource( 3 )
+anims/idle_vertical_up = SubResource( 4 )
+anims/walk_horizontal = SubResource( 5 )
+anims/walk_vertical_down = SubResource( 6 )
+anims/walk_vertical_up = SubResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, 0.05, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Timers" type="Node" parent="."]
 
