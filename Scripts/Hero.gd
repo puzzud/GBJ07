@@ -2,7 +2,7 @@ extends Entity
 class_name Hero
 
 var pushee: Entity = null
-var pushDirection: Vector3 = Vector3(0, 0, 0)
+var pushDirection: Vector2 = Vector2(0, 0)
 
 func _ready():
 	$AnimationPlayer.play("idle_horizontal")
@@ -33,7 +33,7 @@ func onCollision(collision: KinematicCollision):
 		timer.start()
 		
 		pushee = collision.collider
-		pushDirection = collision.normal * -1
+		pushDirection = Vector2(collision.normal.x, collision.normal.y) * -1
 
 func onCollisionEnd():
 	$Timers/PushTimer.stop()
@@ -47,8 +47,8 @@ func push(pushee: Entity):
 		pushee.move(pushDirection)
 	else:
 		var block: Block = pushee
-		var boardCellCoordiantes = block.boardCellCoordinates
-		var pushTargetBoardCellCoordinates = boardCellCoordiantes + pushDirection
+		var boardCellCoordinates = block.boardCellCoordinates
+		var pushTargetBoardCellCoordinates = boardCellCoordinates + pushDirection
 		# TODO: Bound checking.
 		
 		var board = Global.game.getStage().board

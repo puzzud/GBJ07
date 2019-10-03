@@ -16,7 +16,7 @@ func updateFromFastened():
 	
 	$Sprite.frame = fastenedFrameIndex
 
-func move(direction):
+func move(direction: Vector3):
 	if fastened:
 		return
 	
@@ -32,8 +32,9 @@ func move(direction):
 	
 	.move(direction)
 
-func moveToBoardCoordinates(boardCellCoordinates: Vector3):
-	var directionToCell = boardCellCoordinates - self.boardCellCoordinates
+func moveToBoardCoordinates(boardCellCoordinates: Vector2):
+	var directionToCell = Vector3(boardCellCoordinates.x, boardCellCoordinates.y, 0)
+	directionToCell -= Vector3(self.boardCellCoordinates.x, self.boardCellCoordinates.y, 0)
 	
 	if directionToCell.x > 0.0:
 		directionToCell.x = 1
