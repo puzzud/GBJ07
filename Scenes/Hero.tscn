@@ -124,6 +124,7 @@ anims/walk_vertical_down = SubResource( 6 )
 anims/walk_vertical_up = SubResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 shape = SubResource( 8 )
 
 [node name="Timers" type="Node" parent="."]
