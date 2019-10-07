@@ -34,6 +34,7 @@ func onCollision(collision: KinematicCollision):
 		
 		pushee = collision.collider
 		pushDirection = Vector2(collision.normal.x, collision.normal.y) * -1
+		pushDirection = getBasicDirection(pushDirection)
 
 func onCollisionEnd():
 	$Timers/PushTimer.stop()
@@ -58,6 +59,14 @@ func push(pushee: Entity):
 			pushee.moveToBoardCoordinates(pushTargetBoardCellCoordinates)
 	
 	pushee = null
+
+func getBasicDirection(direction: Vector2) -> Vector2:
+	if abs(direction.x) < 0.0001:
+		direction.x = 0
+	if abs(direction.y) < 0.0001:
+		direction.y = 0
+	
+	return direction
 
 func updateAnimation(delta):
 	if motion.length() == 0.0:

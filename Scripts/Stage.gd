@@ -1,11 +1,11 @@
 extends Node
 class_name Stage
 
-const cellWidth = 16
-const cellHeight = 8
+const cellWidth = 1.5
+const cellHeight = 1.5
 
-export(int) var boardWidth = 10
-export(int) var boardHeight = 15
+export(int) var boardWidth = 11
+export(int) var boardHeight = 16
 
 var board = Array()
 
@@ -22,21 +22,25 @@ func buildBoard() -> Array:
 		var boardLevel = initializeBoardLevel()
 		
 		for entity in level.get_children():
-			if entity is Block:
+			if entity is Entity:
 				if !insertEntityIntoBoardLevel(boardLevel, levelIndex, entity):
 					printerr("Failed to insert \"" + entity.name + "\" into level #" + str(boardLevel) + ".")
+			elif entity.name == "Blocks":
+				for block in entity.get_children():
+					if !insertEntityIntoBoardLevel(boardLevel, levelIndex, block):
+						printerr("Failed to insert \"" + entity.name + "\" into level #" + str(boardLevel) + ".")
 		
 		board.push_back(boardLevel)
 		
 	return board
 
-func getCellCoordinatesFromBlock(block) -> Vector3:
-	var coordinates = Vector3()
+func getCellCoordinatesFromBlock(block) -> Vector2:
+	var coordinates = Vector2()
 	
 	var blockPosition = block.get_global_transform().origin
 	coordinates.x = int(blockPosition.x / cellWidth)
 	# TODO: +8 should come from block, as its offset.
-	coordinates.y = int((blockPosition.y + 8) / cellHeight)
+	coordinates.y = int((blockPosition.y) / cellHeight)
 	
 	return coordinates
 
