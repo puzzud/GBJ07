@@ -31,6 +31,7 @@ func onCollisionEnd():
 	pass
 
 func updateCollision():
+	# TODO: This function needs to be reworked for 3D.
 	var y = $Sprite.transform.origin.y
 	var levelIndex = int(y / 4 * -1) # TODO: Get 4 from somewhere. Level height in pixels?
 	
@@ -43,3 +44,13 @@ func updateCollision():
 	set_collision_mask_bit(1, false)
 	set_collision_mask_bit(2, false)
 	set_collision_mask_bit(levelIndex, true)
+
+func getPositionFromCellCoordinateAndLevelIndex(targetCellCoordinates: Vector2, levelIndex: int) -> Vector3:
+	# TODO: Get dimensions from somewhere.
+	var targetPosition: = Vector3(
+		int(targetCellCoordinates.x) * 1.5,
+		int(targetCellCoordinates.y) * 1.5,
+		levelIndex * 0.5
+	)
+	
+	return targetPosition

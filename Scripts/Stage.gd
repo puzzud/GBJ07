@@ -22,6 +22,8 @@ func buildBoard() -> Array:
 		var boardLevel = initializeBoardLevel()
 		
 		for entity in level.get_children():
+			if entity is Hero:
+				continue
 			if entity is Entity:
 				if !insertEntityIntoBoardLevel(boardLevel, levelIndex, entity):
 					printerr("Failed to insert \"" + entity.name + "\" into level #" + str(boardLevel) + ".")
