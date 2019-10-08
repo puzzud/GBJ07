@@ -24,26 +24,10 @@ func updateFromFastened():
 	
 	$Sprite.frame = fastenedFrameIndex
 
-func moveToBoardCoordinates(boardCellCoordinates: Vector2):
+func moveToBoardCoordinates(boardCellCoordinates: Vector2) -> bool:
 	if fastened:
-		return
+		return false
 	
-	targetCellCoordinates = boardCellCoordinates
-	
-	moving = true
-	
-	# If a block sits on top of this block,
-	# move it too.
-	# TODO: Make a function to get an adjacent cell contents.
-	var board = Global.game.getStage().board
-	var aboveBoardLevelIndex = boardLevelIndex + 1
-	if aboveBoardLevelIndex < board.size():
-		var boardLevel = board[aboveBoardLevelIndex]
-		var boardCellContents = boardLevel[boardCellCoordinates.y][boardCellCoordinates.x]
-		if boardCellContents != null:
-			boardCellContents.moveToBoardCoordinates(boardCellCoordinates)
-	
-	# Actual move.
 	var directionToCell = Vector3(boardCellCoordinates.x, boardCellCoordinates.y, 0)
 	directionToCell -= Vector3(self.boardCellCoordinates.x, self.boardCellCoordinates.y, 0)
 	
@@ -57,9 +41,29 @@ func moveToBoardCoordinates(boardCellCoordinates: Vector2):
 	elif directionToCell.y < 0.0:
 		directionToCell.y = -1
 	
+	if directionToCell.x != 0.0 and direction.y != 0:
+		# No diagonal pushes.
+		return false
+	
+	# If a block sits on top of this block,
+	# move it too.
+	# TODO: Make a function to get an adjacent cell contents.
+	var board = Global.game.getStage().board
+	var aboveBoardLevelIndex = boardLevelIndex + 1
+	if aboveBoardLevelIndex < board.size():
+		var boardLevel = board[aboveBoardLevelIndex]
+		var boardCellContents = boardLevel[boardCellCoordinates.y][boardCellCoordinates.x]
+		if boardCellContents != null:
+			boardCellContents.moveToBoardCoordinates(boardCellCoordinates)
+	
+	moving = true
 	move(directionToCell)
 	
+	targetCellCoordinates = boardCellCoordinates
+	
 	updateBoardPosition(self.boardCellCoordinates, boardLevelIndex, targetCellCoordinates, boardLevelIndex)
+	
+	return true
 
 func checkMovingCondition():
 	var targetPosition = getPositionFromCellCoordinateAndLevelIndex(targetCellCoordinates, boardLevelIndex)
