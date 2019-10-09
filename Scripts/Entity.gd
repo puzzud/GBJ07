@@ -1,9 +1,9 @@
 extends KinematicBody
 class_name Entity
 
-var direction = Vector3(1.0, 0.0, 0.0)
-var intendedDirection = Vector3(0.0, 0.0, 0.0)
-var motion = Vector3(0.0, 0.0, 0.0)
+var direction: = Vector2(1.0, 0.0)
+var intendedDirection: = Vector2(0.0, 0.0)
+var motion: = Vector3(0.0, 0.0, 0.0)
 
 export var speed = 24.0
 
@@ -11,7 +11,7 @@ func _ready():
 	updateCollision()
 
 func move(direction):
-	motion = direction
+	motion = Vector3(direction.x, direction.y, 0)
 
 func _physics_process(delta):
 	if motion.length() == 0.0:
