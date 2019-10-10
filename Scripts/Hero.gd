@@ -25,38 +25,33 @@ func _process(delta):
 	if intendedDirection.length() > 0.0:
 		direction = intendedDirection
 		move(direction)
+	else:
+		if pushing:
+			print("Stopped pushing " + str(OS.get_ticks_msec()))
+			stopPush()
 	
 	updateAnimation(delta)
 
 func onCollision(collision: KinematicCollision):
-	var timer: Timer = $Timers/PushTimer
-	
 	var collisionDirection: Vector2 = getBasicDirection(Vector2(collision.normal.x, collision.normal.y) * -1)
 	
+	#print(str(intendedDirection) + ":" + str(collisionDirection))
+	
+	if intendedDirection != collisionDirection:
+		print("Not pushing " + str(OS.get_ticks_msec()))
+		stopPush()
+		
+		return
+	
 	if pushee == null:
-		if timer.is_stopped():
-			print("Staring Push")
-			
-			pushing = true
-			timer.start()
-			pushee = collision.collider
-			pushDirection = collisionDirection
+		if $Timers/PushTimer.is_stopped():
+			print("Staring push")
+			startPush(collision.collider, collisionDirection)
 	else:
-		if intendedDirection != collisionDirection:
-			print("Not pushing " + str(OS.get_ticks_msec()))
-			
-			pushing = false
-			timer.stop()
-			pushee = null
-			pushDirection = Vector2.ZERO
-		else:
-			print("Pushing " + str(OS.get_ticks_msec()))
+		print("Pushing " + str(OS.get_ticks_msec()))
 
 func onCollisionEnd():
-	$Timers/PushTimer.stop()
-	pushing = false
-	pushee = null
-	pushDirection = Vector2.ZERO
+	stopPush()
 
 func onPushTimerTimeout():
 	if pushee != null:
@@ -76,9 +71,19 @@ func push(pushee: Entity):
 			pushee.moveToBoardCoordinates(pushTargetBoardCellCoordinates)
 	
 	print("Pushed block")
+	stopPush()
+
+func startPush(pushee: Entity, pushDirection: Vector2) -> void:
+	pushing = true
+	$Timers/PushTimer.start()
+	self.pushee = pushee
+	self.pushDirection = pushDirection
+
+func stopPush() -> void:
 	pushing = false
-	pushee = null
-	pushDirection = Vector2.ZERO
+	$Timers/PushTimer.stop()
+	self.pushee = null
+	self.pushDirection = Vector2.ZERO
 
 func getBasicDirection(direction: Vector2) -> Vector2:
 	if abs(direction.x) < 0.0001:
