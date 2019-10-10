@@ -4,7 +4,7 @@ class_name Stage
 const cellWidth = 1.5
 const cellHeight = 1.5
 
-export(int) var boardWidth = 11
+export(int) var boardWidth = 10
 export(int) var boardHeight = 16
 
 var board = Array()

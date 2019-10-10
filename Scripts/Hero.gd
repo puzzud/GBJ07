@@ -62,9 +62,16 @@ func push(pushee: Entity):
 		var block: Block = pushee
 		var boardCellCoordinates = block.boardCellCoordinates
 		var pushTargetBoardCellCoordinates = boardCellCoordinates + pushDirection
-		# TODO: Bound checking.
 		
-		var board = Global.game.getStage().board
+		# Bounds check.
+		var stage = Global.game.getStage()
+		if !(pushTargetBoardCellCoordinates.y in range(0, stage.boardHeight)) or !(pushTargetBoardCellCoordinates.x in range(0, stage.boardWidth)):
+			print("Can't push")
+			stopPush()
+			return
+		
+		# Check if target cell is clear.
+		var board = stage.board
 		var boardLevel = board[block.boardLevelIndex]
 		var boardCellContents = boardLevel[pushTargetBoardCellCoordinates.y][pushTargetBoardCellCoordinates.x]
 		if boardCellContents == null:
