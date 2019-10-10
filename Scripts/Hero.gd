@@ -27,7 +27,7 @@ func _process(delta):
 		move(direction)
 	else:
 		if pushing:
-			print("Stopped pushing " + str(OS.get_ticks_msec()))
+			#print("Stopped pushing " + str(OS.get_ticks_msec()))
 			stopPush()
 	
 	updateAnimation(delta)
@@ -38,17 +38,18 @@ func onCollision(collision: KinematicCollision):
 	#print(str(intendedDirection) + ":" + str(collisionDirection))
 	
 	if intendedDirection != collisionDirection:
-		print("Not pushing " + str(OS.get_ticks_msec()))
+		#print("Not pushing " + str(OS.get_ticks_msec()))
 		stopPush()
 		
 		return
 	
 	if pushee == null:
 		if $Timers/PushTimer.is_stopped():
-			print("Staring push")
+			#print("Staring push")
 			startPush(collision.collider, collisionDirection)
 	else:
-		print("Pushing " + str(OS.get_ticks_msec()))
+		#print("Pushing " + str(OS.get_ticks_msec()))
+		pass
 
 func onCollisionEnd():
 	stopPush()
@@ -66,7 +67,7 @@ func push(pushee: Entity):
 		# Bounds check.
 		var stage = Global.game.getStage()
 		if !(pushTargetBoardCellCoordinates.y in range(0, stage.boardHeight)) or !(pushTargetBoardCellCoordinates.x in range(0, stage.boardWidth)):
-			print("Can't push")
+			#print("Can't push")
 			stopPush()
 			return
 		
@@ -77,7 +78,7 @@ func push(pushee: Entity):
 		if boardCellContents == null:
 			pushee.moveToBoardCoordinates(pushTargetBoardCellCoordinates)
 	
-	print("Pushed block")
+	#print("Pushed block")
 	stopPush()
 
 func startPush(pushee: Entity, pushDirection: Vector2) -> void:
