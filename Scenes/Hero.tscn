@@ -130,5 +130,6 @@ shape = SubResource( 8 )
 [node name="Timers" type="Node" parent="."]
 
 [node name="PushTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
 one_shot = true
 [connection signal="timeout" from="Timers/PushTimer" to="." method="onPushTimerTimeout"]
