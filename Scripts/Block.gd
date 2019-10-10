@@ -42,7 +42,7 @@ func moveToBoardCoordinates(boardCellCoordinates: Vector2) -> bool:
 		directionToCell.y = -1
 	
 	if directionToCell.x != 0.0 and direction.y != 0:
-		# No diagonal pushes.
+		# No diagonal moves.
 		return false
 	
 	# If a block sits on top of this block,
@@ -52,7 +52,7 @@ func moveToBoardCoordinates(boardCellCoordinates: Vector2) -> bool:
 	var aboveBoardLevelIndex = boardLevelIndex + 1
 	if aboveBoardLevelIndex < board.size():
 		var boardLevel = board[aboveBoardLevelIndex]
-		var boardCellContents = boardLevel[boardCellCoordinates.y][boardCellCoordinates.x]
+		var boardCellContents = boardLevel[self.boardCellCoordinates.y][self.boardCellCoordinates.x]
 		if boardCellContents != null:
 			boardCellContents.moveToBoardCoordinates(boardCellCoordinates)
 	
