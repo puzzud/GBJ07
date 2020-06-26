@@ -54,7 +54,7 @@ func initializeBoardLevel():
 		var boardLevelRow = Array()
 		
 # warning-ignore:unused_variable
-		for y in range(0, boardWidth):
+		for x in range(0, boardWidth):
 			boardLevelRow.push_back(null)
 		
 		boardLevel.push_back(boardLevelRow)
